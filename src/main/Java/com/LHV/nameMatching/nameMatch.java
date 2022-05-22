@@ -14,8 +14,9 @@ public class nameMatch {
         String givenName = removeNoise(userEntry);
         System.out.println(givenName);
         readFile();
-        readFile2();
+        //readFile2();
         matchScore(givenName);
+        //test
     }
 
     public static void readFile2() {
