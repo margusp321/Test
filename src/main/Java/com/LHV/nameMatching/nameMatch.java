@@ -7,37 +7,16 @@ import java.io.FileNotFoundException;
 import java.util.*;
 
 public class nameMatch {
-    public static String userEntry = "Kuri koer";
+    public static String userEntry = "Osama bin Laden";
     public static ArrayList<Person> matches = new ArrayList<Person>();
 
     public static void main(String[] args) {
         String givenName = removeNoise(userEntry);
-        System.out.println(givenName);
         readFile();
-        //readFile2();
         matchScore(givenName);
-        //test
     }
-
-    public static void readFile2() {
-        System.out.println("Testing");
-        System.out.println("Nurr KAss " + nameMatch.class.getResource("").getPath().toString());
-        File file = new File(nameMatch.class.getResource("names5.txt").getPath().toString());
-        //getClass();
-        System.out.println("test" + file);
-        try {
-            Scanner scanner = new Scanner(file);
-            while(scanner.hasNextLine()){
-                System.out.println(scanner.nextLine());
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-    }
-
-
     public static void readFile(){
-        File file = new File("D:\\Downloads\\test\\names.txt");
+        File file = new File("src/main/Resources/com.LHV.nameMatching/names.txt");
         try {
             Scanner scanner = new Scanner(file);
             while(scanner.hasNextLine()){
@@ -84,7 +63,6 @@ public class nameMatch {
         for(int i = 0; i<listName.length;i++){
             for(int x =0; x<listBlacklisted.length;x++){
                 if (listName[i].equals(listBlacklisted[x])){
-                    System.out.println(listBlacklisted[x]);
                     score += 1;
                 }
             }
@@ -118,7 +96,7 @@ public class nameMatch {
 
 
     public static String removeNoise(String name){
-        File fileNoise = new File("D:\\Downloads\\test\\noise_words.txt");
+        File fileNoise = new File("src/main/Resources/com.LHV.nameMatching/noise_words.txt");
         ArrayList<String> listName = new ArrayList<String>(Arrays.asList(name.toLowerCase().split("[, ]+")));
         try {
             Scanner scanner = new Scanner(fileNoise);
